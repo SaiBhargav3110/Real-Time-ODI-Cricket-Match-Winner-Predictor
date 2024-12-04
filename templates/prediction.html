@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODI Winner Prediction</title>
+    <link rel="icon" href="https://www.jagranimages.com/images/newimg/21082020/21_08_2020-ipl_logo_20650553.jpg" type="image/x-icon">
+    <link rel="icon" href="https://repository-images.githubusercontent.com/499116129/ebf45738-0201-41d2-a851-84b0b8616d5a" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+       body {
+  background-image: url('https://thumbs.dreamstime.com/b/cricket-stadium-hitting-vector-background-recreation-equipment-sport-ball-design-112653782.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  color: black ;
+  font-size: larger;
+}
+
+.title-font {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.home-btn {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.custom-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.run-rate {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.badge {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.badge-info {
+  background-color: #38bdf8;
+  color: #ffffff;
+}
+
+.badge-warning {
+  background-color: #fbbf24;
+  color: #1e293b;
+}
+
+.btn-home {
+  background-color: #a74e28; 
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.btn-animated {
+  background-color: #ff6a00; 
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 20px; 
+}
+.progress-bar {
+  position: relative;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 20px;
+  min-width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-weight: bold;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-20">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"><u><b>ODI Winner Prediction</b></u></h1>
+            </div>
+            <a class="btn btn-primary text-align:center" href="./" role="button">Home</a><br><br>
+            <div class="container_res custom-card">
+                <h1 class="text-xl font-extrabold mb-4">Match Winning Prediction</h1>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="team">
+                        <h2 class="text-lg font-extrabold mb-2">{{ team1 }}</h2>
+                        <div class="progress-bar bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="progress bg-blue-500 text-white font-extrabold text-center py-1" style="width: {{ probability1 }}%;">{{ probability1 }}%</div>
+                            
+                        </div>
+                    </div>
+                    <div class="team">
+                        <h2 class="text-lg font-extrabold mb-2">{{ team2 }}</h2>
+                        <div class="progress-bar bg-gray-300 rounded-lg overflow-hidden">
+                            <div class="progress bg-blue-500 text-white font-extrabold text-center py-1" style="width: {{ probability2 }}%;">{{ probability2 }}%</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br><br>
+            <div class="card custom-card p-5">
+                <div class="card-body">
+                    <form action="/predict" method="post">
+                        <div class="mb-3">
+                            <label for="batting_team" class="form-label">Batting Team:</label>
+                            <select name="batting_team" class="form-select" required>
+                                <option value="" {% if batting_team == "" %}selected{% endif %}>Select Batting Team</option>
+                                <option value="India" {% if batting_team == "India" %}selected{% endif %}>India</option>
+                                <option value="Australia" {% if batting_team == "Australia" %}selected{% endif %}>Australia</option>
+                                <option value="South Africa" {% if batting_team == "South Africa" %}selected{% endif %}>South Africa</option>
+                                <option value="Bangladesh" {% if batting_team == "Bangladesh" %}selected{% endif %}>Bangladesh</option>
+                                <option value="New Zealand" {% if batting_team == "New Zealand" %}selected{% endif %}>New Zealand</option>
+                                <option value="England" {% if batting_team == "England" %}selected{% endif %}>England</option>
+                                <option value="Pakistan" {% if batting_team == "Pakistan" %}selected{% endif %}>Pakistan</option>
+                                <option value="Sri Lanka" {% if batting_team == "Sri Lanka" %}selected{% endif %}>Sri Lanka</option>
+                                <option value="West Indies" {% if batting_team == "West Indies" %}selected{% endif %}>West Indies</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bowling_team" class="form-label">Bowling Team:</label>
+                            <select name="bowling_team" class="form-select" required>
+                                <option value="" {% if bowling_team == "" %}selected{% endif %}>Select Bowling Team</option>
+                                <option value="India" {% if bowling_team == "India" %}selected{% endif %}>India</option>
+                                <option value="Australia" {% if bowling_team == "Australia" %}selected{% endif %}>Australia</option>
+                                <option value="South Africa" {% if bowling_team == "South Africa" %}selected{% endif %}>South Africa</option>
+                                <option value="Bangladesh" {% if bowling_team == "Bangladesh" %}selected{% endif %}>Bangladesh</option>
+                                <option value="New Zealand" {% if bowling_team == "New Zealand" %}selected{% endif %}>New Zealand</option>
+                                <option value="England" {% if bowling_team == "England" %}selected{% endif %}>England</option>
+                                <option value="Pakistan" {% if bowling_team == "Pakistan" %}selected{% endif %}>Pakistan</option>
+                                <option value="Sri Lanka" {% if bowling_team == "Sri Lanka" %}selected{% endif %}>Sri Lanka</option>
+                                <option value="West Indies" {% if bowling_team == "West Indies" %}selected{% endif %}>West Indies</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City:</label>
+                            <select name="city" class="form-select" required>
+                                <option value="" {% if city == "" %}selected{% endif %}>Select City</option>
+                                <option value="Brisbane" {% if city == "Brisbane" %}selected{% endif %}>Brisbane</option>
+                                <option value="Perth" {% if city == "Perth" %}selected{% endif %}>Perth</option>
+                                <option value="Melbourne" {% if city == "Melbourne" %}selected{% endif %}>Melbourne</option>
+                                <option value="Sydney" {% if city == "Sydney" %}selected{% endif %}>Sydney</option>
+                                <option value="Dubai" {% if city == "Dubai" %}selected{% endif %}>Dubai</option>
+                                <option value="Sharjah" {% if city == "Sharjah" %}selected{% endif %}>Sharjah</option>
+                                <option value="Abu Dhabi" {% if city == "Abu Dhabi" %}selected{% endif %}>Abu Dhabi</option>
+                                <option value="Colombo" {% if city == "Colombo" %}selected{% endif %}>Colombo</option>
+                                <option value="Karachi" {% if city == "Karachi" %}selected{% endif %}>Karachi</option>
+                                <option value="Kolkata" {% if city == "Kolkata" %}selected{% endif %}>Kolkata</option>
+                                <option value="Durban" {% if city == "Durban" %}selected{% endif %}>Durban</option>
+                                <option value="Johannesburg" {% if city == "Johannesburg" %}selected{% endif %}>Johannesburg</option>
+                                <option value="Lahore" {% if city == "Lahore" %}selected{% endif %}>Lahore</option>
+                                <option value="Bangalore" {% if city == "Bangalore" %}selected{% endif %}>Bangalore</option>
+                                <option value="Napier" {% if city == "Napier" %}selected{% endif %}>Lahore</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+
+                            <label for="runs_left" class="form-label">Runs Left:</label>
+                            <input type="number" name="runs_left" class="form-control" value="{{ runs_left }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="balls_left" class="form-label">Balls Left:</label>
+                            <input type="number" name="balls_left" class="form-control" value="{{ balls_left }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="wickets_left" class="form-label">Wickets Left:</label>
+                            <input type="number" name="wickets_left" class="form-control" value="{{ wickets_left }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="target" class="form-label">Target</label>
+                            <input type="number" step="0.01" name="target" class="form-control" value="{{ target }}" required>
+                        </div>
+                        {% if current_run_rate is not none and required_run_rate is not none %}
+<div class="mt-4">
+  <h3 class="text-xl font-bold mb-3">Calculated Run Rates:</h3>
+  <p class="run-rate"><span class="badge bg-info">Current Run Rate (CRR):</span> <strong>{{ current_run_rate }} runs per over</strong></p>
+  <p class="run-rate"><span class="badge bg-warning text-dark">Required Run Rate (RRR):</span> <strong>{{ required_run_rate }} runs per over</strong></p>
+</div>
+{% endif %}
+                        <div class="text-center mb-3" >
+                            <button type="submit" class="btn btn-primary btn-animated">Predict</button>
+                        </div>
+                        
+                    </form>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
